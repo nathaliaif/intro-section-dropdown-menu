@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Intro section with dropdown navigation</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css-reset.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="nav-container">
+      <img src="images/logo.svg" alt="Snap logo" class="logo" />
+      <button
+        class="menu-toggle"
+        aria-controls="primary-navigation"
+        aria-expanded="false"
+      >
+        <!-- <div class="hamburger" aria-hidden="true"></div> -->
+        <img src="images/icon-menu.svg" alt="" class="toggle__image" />
+      </button>
+      <div class="menu-toggle__background"></div>
+      <nav class="primary-container" data-state="closed">
+        <ul class="primary__link-list">
+          <li class="nav-link features">
+            <a href=""
+              >Features
+              <img
+                src="images/icon-arrow-down.svg"
+                alt="Icon arrow down"
+                class="icon-arrow"
+            /></a>
+          </li>
+          <li class="nav-link company">
+            <a href=""
+              >Company<img
+                src="images/icon-arrow-down.svg"
+                alt="Icon arrow down"
+                class="icon-arrow"
+            /></a>
+          </li>
+          <li class="nav-link careers"><a href="">Careers</a></li>
+          <li class="nav-link about"><a href="">About</a></li>
+        </ul>
+        <div class="nav__buttons">
+          <button class="login-button">Login</button>
+          <button class="">Register</button>
+        </div>
+      </nav>
+    </div>
+
+    <main class="main-container">
+      <section class="main__content">
+        <h1>Make remote work</h1>
+        <div class="text">
+          Get your team in sync, no matter your location. Streamline processes,
+          create team rituals, and watch productivity soar.
+        </div>
+        <button>Learn more</button>
+        <div class="clients-container">
+          <img src="images/client-databiz.svg" alt="" />
+          <img src="images/client-audiophile.svg" alt="" />
+          <img src="images/client-meet.svg" alt="" />
+          <img src="images/client-maker.svg" alt="" />
+        </div>
+      </section>
+      <img
+        src="images/image-hero-mobile.png"
+        alt="Image of man holding a computer"
+        class="image-hero-mobile"
+      />
+      <img
+        src="images/image-hero-desktop.png"
+        alt="Image of man holding a computer"
+        class="image-hero-desktop"
+      />
+    </main>
+
+    <footer class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Nathalia Irokawa</a>.
+    </footer>
+  </body>
+</html>
