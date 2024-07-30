@@ -4,8 +4,6 @@ const navHamburgerContainer = document.querySelector('.primary-container');
 const menuToggleBackground = document.querySelector('.menu-toggle__background');
 const htmlBody = document.querySelector('body');
 
-const learn = document.querySelector('.button-learn')
-
 // ---- Hamburger menu Mobile ----
 menuToggle.addEventListener('click', () => {
     const isOpened = menuToggle.getAttribute('aria-expanded') === 'true';
@@ -87,7 +85,7 @@ dropdownToggle.forEach((item) => {
         isOpened ? closeDropdown() : openDropdown();
     });
 
-    // Closing dropdown when mouse leaves dropwdown
+    // Closing when mouse leaves dropdown container
     if (window.innerWidth >= 1000) {
         dropdownList.addEventListener('mouseleave', (event) => {
             const relatedTarget = event.relatedTarget;
@@ -108,4 +106,3 @@ function closeAllDropdown() {
         item.setAttribute('src', 'images/icon-arrow-down.svg');
     })
 }
-
