@@ -26,3 +26,6 @@ function closeMenu() {
     navHamburger.setAttribute('data-state', 'closed');
     menuToggleBackground.setAttribute('style', 'display: none');
 }
+
+// ---- Dropdown Menu ----
+const dropdownContainer = document.querySelector('.dropdown-nav');

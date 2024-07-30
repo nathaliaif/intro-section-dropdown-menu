@@ -91,6 +91,26 @@ html {
   height: 7px;
 }
 
+.dropdown-nav {
+  flex-direction: column;
+  row-gap: 0.8rem;
+  list-style: none;
+  padding: 0 0 0.5rem 1.5rem;
+}
+
+.dropdown-nav[data-state="open"] {
+  display: flex;
+}
+
+.dropdown-nav[data-state="closed"] {
+  display: none;
+}
+
+.dropdown-nav li img {
+  float: right;
+  width: 1rem;
+}
+
 .nav__buttons {
   display: flex;
   flex-direction: column;

@@ -20,6 +20,10 @@
     <link rel="stylesheet" href="css-reset.css" />
     <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"
+      defer
+    ></script>
   </head>
   <body>
     <div class="nav-container">
@@ -44,6 +48,37 @@
                 class="icon-arrow"
             /></a>
           </li>
+          <ul class="dropdown-nav" id="dropdown__features" data-state="closed">
+            <li class="nav-link">
+              <a href=""
+                ><img src="images/icon-todo.svg" alt="Note icon" />Todo List</a
+              >
+            </li>
+            <li class="nav-link">
+              <a href=""
+                ><img
+                  src="images/icon-calendar.svg"
+                  alt="Calendar icon"
+                />Calendar</a
+              >
+            </li>
+            <li class="nav-link">
+              <a href=""
+                ><img
+                  src="images/icon-reminders.svg"
+                  alt="Bell icon"
+                />Reminders</a
+              >
+            </li>
+            <li class="nav-link">
+              <a href=""
+                ><img
+                  src="images/icon-planning.svg"
+                  alt="Clock icon"
+                />Planning</a
+              >
+            </li>
+          </ul>
           <li class="nav-link company">
             <a href=""
               >Company<img
@@ -52,6 +87,17 @@
                 class="icon-arrow"
             /></a>
           </li>
+          <ul class="dropdown-nav" id="dropdown__company" data-state="closed">
+            <li class="nav-link">
+              <a href="">History</a>
+            </li>
+            <li class="nav-link">
+              <a href="">Our Team</a>
+            </li>
+            <li class="nav-link">
+              <a href="">Blog</a>
+            </li>
+          </ul>
           <li class="nav-link careers"><a href="">Careers</a></li>
           <li class="nav-link about"><a href="">About</a></li>
         </ul>
