@@ -98,6 +98,7 @@ html {
   row-gap: 0.8rem;
   list-style: none;
   padding: 0 0 0.5rem 1.5rem;
+  opacity: 1;
 }
 
 .dropdown-nav[data-state="open"] {
@@ -135,6 +136,7 @@ html {
 .main-container {
   display: flex;
   flex-direction: column-reverse;
+  justify-content: flex-end;
 }
 
 .main__content {
@@ -186,5 +188,17 @@ html {
 }
 
 .attribution {
-  display: none;
+  position: relative;
+  bottom: 0;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--gray);
+  background-color: rgb(from var(--gray) r g b / 30%);
+}
+
+.attribution a {
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--black);
 }
