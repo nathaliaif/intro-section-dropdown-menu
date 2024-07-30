@@ -9,6 +9,10 @@ menuToggle.addEventListener('click', () => {
     isOpened ? closeMenu() : openMenu();
 })
 
+menuToggleBackground.addEventListener('click', () => {
+    closeMenu();
+});
+
 function openMenu() {
     menuToggle.setAttribute('aria-expanded', 'true');
     iconToggle.setAttribute('src', 'images/icon-close-menu.svg');
