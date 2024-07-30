@@ -230,6 +230,10 @@ html {
     padding: 1.5rem 2.5rem;
   }
 
+  .menu-toggle__background {
+    display: none;
+  }
+
   .primary-container {
     position: relative;
     top: auto;
