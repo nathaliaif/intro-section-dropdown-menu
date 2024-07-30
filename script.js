@@ -49,26 +49,24 @@ menuToggleBackground.addEventListener('click', (event) => {
 
 // ---- Dropdown Menu ----
 const dropdownToggle = document.querySelectorAll('.dropdown-toggle');
-const dropdownContainerMobile = document.querySelectorAll('.dropdown-nav');
+const dropdownContainer = document.querySelectorAll('.dropdown-nav');
 const dropdownArrowIconAll = document.querySelectorAll('.icon-arrow');
 
 dropdownToggle.forEach((item) => {
     const dropdownList = document.querySelector(`#dropdown__${item.id}`);
     const dropdownArrowIcon = document.querySelector(`#${item.id} a .icon-arrow`);
 
+    let closeTimeout;
+
     // Close the dropdown
     function closeDropdown() {
-        const isOpened = dropdownList.getAttribute('data-state') === 'open';
-
-        if (isOpened) {
-            gsap.to(dropdownList, {duration: 0.3, y: 0, opacity: 0, ease: 'power2.out'});
+        gsap.to(dropdownList, {duration: 0.3, y: 0, opacity: 0, ease: 'power2.out'});
             dropdownArrowIcon.setAttribute('src', 'images/icon-arrow-down.svg');
 
             setTimeout(() => {
                 dropdownList.setAttribute('data-state', 'closed');
                 item.setAttribute('style', 'opacity: 1');
             }, 300);
-        }
     }
 
     // Open the dropdown
@@ -81,24 +79,36 @@ dropdownToggle.forEach((item) => {
     // Toggling dropdown on hover or click based on screen width
     item.addEventListener(window.innerWidth >= 1000 ? 'mouseenter' : 'click', (event) => {
         const isOpened = dropdownList.getAttribute('data-state') === 'open';
-
         isOpened ? closeDropdown() : openDropdown();
     });
 
     // Closing when mouse leaves dropdown container
     if (window.innerWidth >= 1000) {
-        dropdownList.addEventListener('mouseleave', (event) => {
-            const relatedTarget = event.relatedTarget;
-
-            if (!dropdownList.contains(relatedTarget) && !item.contains(relatedTarget)) {
+        item.addEventListener('mouseleave', (event) => {
+            closeTimeout = setTimeout(() => {
                 closeDropdown();
-            }
+            }, 150); // Delay to handle the gap
         });
+
+        item.addEventListener('mouseenter', () => {
+            clearTimeout(closeTimeout);
+        });
+
+        dropdownList.addEventListener('mouseenter', () => {
+            clearTimeout(closeTimeout);
+        });
+
+        dropdownList.addEventListener('mouseleave', (event) => {
+            closeTimeout = setTimeout(() => {
+                closeDropdown();
+            }, 150); // Delay to handle the gap
+        });
+
     }
 });
 
 function closeAllDropdown() {
-    dropdownContainerMobile.forEach(item => {
+    dropdownContainer.forEach(item => {
         item.setAttribute('data-state', 'closed');
     })
 
