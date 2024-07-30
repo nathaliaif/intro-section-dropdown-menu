@@ -4,11 +4,7 @@ const navHamburgerContainer = document.querySelector('.primary-container');
 const menuToggleBackground = document.querySelector('.menu-toggle__background');
 const htmlBody = document.querySelector('body');
 
-const learnMore = document.querySelector('.button-learn');
-
-learnMore.addEventListener('click', () => {
-    console.log(window.innerWidth);
-})
+const learn = document.querySelector('.button-learn')
 
 // ---- Hamburger menu Mobile ----
 menuToggle.addEventListener('click', () => {
@@ -54,35 +50,54 @@ menuToggleBackground.addEventListener('click', (event) => {
 
 
 // ---- Dropdown Menu ----
-const dropdownToggleMobile = document.querySelectorAll('.dropdown-toggle');
+const dropdownToggle = document.querySelectorAll('.dropdown-toggle');
 const dropdownContainerMobile = document.querySelectorAll('.dropdown-nav');
 const dropdownArrowIconAll = document.querySelectorAll('.icon-arrow');
 
-dropdownToggleMobile.forEach((item) => {
-    item.addEventListener('click', (event) => {
-        const dropdownList = document.querySelector(`#dropdown__${item.id}`);
-        const dropdownArrowIcon = document.querySelector(`#${item.id} a .icon-arrow`);
+dropdownToggle.forEach((item) => {
+    const dropdownList = document.querySelector(`#dropdown__${item.id}`);
+    const dropdownArrowIcon = document.querySelector(`#${item.id} a .icon-arrow`);
 
+    // Close the dropdown
+    function closeDropdown() {
         const isOpened = dropdownList.getAttribute('data-state') === 'open';
 
-        if(isOpened) { 
-            //Closing dropdown
+        if (isOpened) {
             gsap.to(dropdownList, {duration: 0.3, y: 0, opacity: 0, ease: 'power2.out'});
-            dropdownArrowIcon.setAttribute('src', 'images/icon-arrow-down.svg')
+            dropdownArrowIcon.setAttribute('src', 'images/icon-arrow-down.svg');
 
             setTimeout(() => {
                 dropdownList.setAttribute('data-state', 'closed');
                 item.setAttribute('style', 'opacity: 1');
-            }, 300)
-        } else { 
-            // Opening dropdown
-            gsap.fromTo(dropdownList, {duration: 0.4, y: '-2rem', opacity: 0, stagger: 0.15, ease: 'power2.out'}, {y: 0, opacity: 1});
-            
-            dropdownList.setAttribute('data-state', 'open');
-            dropdownArrowIcon.setAttribute('src', 'images/icon-arrow-up.svg')
+            }, 300);
         }
-    })
-})
+    }
+
+    // Open the dropdown
+    function openDropdown() {
+        gsap.fromTo(dropdownList, {duration: 0.4, y: '-2rem', opacity: 0, stagger: 0.15, ease: 'power2.out'}, {y: 0, opacity: 1});
+        dropdownList.setAttribute('data-state', 'open');
+        dropdownArrowIcon.setAttribute('src', 'images/icon-arrow-up.svg');
+    }
+
+    // Toggling dropdown on hover or click based on screen width
+    item.addEventListener(window.innerWidth >= 1000 ? 'mouseenter' : 'click', (event) => {
+        const isOpened = dropdownList.getAttribute('data-state') === 'open';
+
+        isOpened ? closeDropdown() : openDropdown();
+    });
+
+    // Closing dropdown when mouse leaves dropwdown
+    if (window.innerWidth >= 1000) {
+        dropdownList.addEventListener('mouseleave', (event) => {
+            const relatedTarget = event.relatedTarget;
+
+            if (!dropdownList.contains(relatedTarget) && !item.contains(relatedTarget)) {
+                closeDropdown();
+            }
+        });
+    }
+});
 
 function closeAllDropdown() {
     dropdownContainerMobile.forEach(item => {

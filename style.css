@@ -18,6 +18,7 @@ html {
   overflow-x: hidden;
   display: flex;
   flex-direction: column;
+  background-color: var(--white);
 }
 
 .stop-scrolling {
@@ -234,6 +235,7 @@ html {
     top: auto;
     right: auto;
     flex-direction: row;
+    align-items: center;
     justify-content: space-between;
     width: 100%;
     max-width: 100%;
@@ -262,6 +264,10 @@ html {
   .nav__buttons {
     flex-direction: row;
     column-gap: 2rem;
+  }
+
+  .dropdown-toggle {
+    z-index: 99;
   }
 
   .nav__buttons button {
